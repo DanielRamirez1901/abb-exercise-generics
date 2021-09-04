@@ -61,4 +61,17 @@ public class CreationTree<T extends Comparable<T>>{
 		}
 		return youFoundTheObject;
 	}
+	
+	public void delete(Node<T> nodeToDelete) {
+		nodeToDelete = null;
+	}
+	
+	public void deleteNode(T object) {
+		Node <T> nodeToDelete = searchNode(object);
+		if(nodeToDelete != null) {
+			if(nodeToDelete.getRigth()==null && nodeToDelete.getLeft()==null) {
+				delete(searchNode(object));
+			}
+		}
+	}
 }
